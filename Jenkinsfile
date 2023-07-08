@@ -3,7 +3,7 @@ pipeline {
 	stages{
 		stage('1-clonecode'){
 			steps{
-			checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-creds', url: 'https://github.com/etechDevops/team6-demo1.git']])
+			git branch: 'main', credentialsId: 'github-cred', url: 'https://github.com/abmarius/multi-branch.git'
 			}
 		}
 		stage('2-s2'){
