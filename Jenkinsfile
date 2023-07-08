@@ -6,30 +6,16 @@ pipeline {
 			checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'githubID', url: 'https://github.com/abmarius/multi-branch.git']])
 			}
 		}
-		stage('2-member-name1'){
+		stage('2-currently running processes'){
 			steps{
-				echo "member 1: kingsly nr"
+				sh 'ps -ef'
 			}
 		}
-		stage('3-member-name2'){
+		stage('3-Jenkins status'){
 			steps{
-				echo "member 2: ifeanye"
+				sh 'sudo systemctl status Jenkins'
 			}
 		}
-		stage('4-member-name3'){
-			steps{
-				echo "member 3: bruno"
-			}
-		}
-        stage('5-member-name4'){
-            steps{
-                echo "member 4: eric"
-            }
-        }
-        stage('6-member-name5'){
-            steps{
-                echo "member 5: bazil"
-            }
-        }
+		
 	}
 }
