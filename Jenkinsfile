@@ -6,41 +6,29 @@ pipeline {
 			checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'githubID', url: 'https://github.com/abmarius/multi-branch.git']])
 			}
 		}
-		stage('2-s2'){
+		stage('2-member-name1'){
 			steps{
-				sh 'lscpu'
-				sh 'whoami'
+				echo "member 1: kingsly nr"
 			}
 		}
-		stage('3-s3'){
+		stage('3-member-name2'){
 			steps{
-				sh 'df -h'
-				sh 'touch team6'
+				echo "member 2: ifeanye"
 			}
 		}
-		stage('4-s4'){
+		stage('4-member-name3'){
 			steps{
-				sh 'pwd'
-				sh 'du -h'
+				echo "member 3: bruno"
 			}
 		}
-        stage('5-s5'){
-			parallel {
-				stage('p1'){
-					steps{
-						echo "first parallel-stage"
-					}
-				}
-				stage('p2'){
-					steps{
-						echo "second parallel-stage"
-					}
-				}
-			}
-        }
-        stage('6-scriptdemo'){
+        stage('5-member-name4'){
             steps{
-                sh 'bash -x  /var/lib/jenkins/workspace/team6-demo1-pipeline/scriptdemo.sh'
+                echo "member 4: eric"
+            }
+        }
+        stage('6-member-name5'){
+            steps{
+                echo "member 5: bazil"
             }
         }
 	}
