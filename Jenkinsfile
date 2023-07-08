@@ -13,7 +13,7 @@ pipeline {
 		}
 		stage('3-Jenkins status'){
 			steps{
-				sh 'sudo systemctl status Jenkins'
+				sh 'sudo systemctl status jenkins'
 			}
 		}
 		
